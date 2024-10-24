@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lorem</title>
-    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon"> 
+    <title>Milk.Sol</title>
     <link rel="stylesheet" href="cowmilk.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
+        <nav>
             <div class="logo">Milk.sol</div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#roadmap">Projects</a></li>
                 <li><a href="#aboutus">About</a></li>
+                <li><a href="#footer-content" class="contact-btn">Contact</a></li>
             </ul>
-            <a href="#footer-content" class="contact-btn">Contact</a>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
         </nav>
     </header>
-    
+
     <main>
         <section class="hero">
             <div class="hero-text">
@@ -31,17 +35,7 @@
             </div>
             <img src="./photo_2024-10-22_15-01-03.jpg" alt="Milk Sol Community" class="hero-image">
         </section>
-        
-        
-        <section class="miao-pass">
-            <div class="miao-pass-content">
-                <h2>Get Your Milk.Sol Pass</h2>
-                <p>The Milk.Sol Pass offers exclusive perks for early adopters, including passive income opportunities and access to community events.</p>
-                <button class="get-pass">Get Your Pass</button>
-            </div>
-        </section>
 
-        
         <section id="services" class="services">
             <h2>Explore Milk.Sol Services</h2>
             <p>At Milk.Sol, we offer a range of services designed to benefit both our community and the environment.</p>
@@ -62,16 +56,13 @@
                 </div>
             </div>
         </section>
-    
-        
+
         <section id="roadmap" class="roadmap">
             <h2>Our Roadmap</h2>
-            <!-- Roadmap Image -->
             <div class="roadmap-image">
                 <img src="./photo_2024-10-22_15-01-55.jpg" alt="Roadmap Image" class="roadmap-img">
             </div>
-        
-            <!-- Roadmap Content -->
+
             <div class="roadmap-content">
                 <div class="roadmap-item">
                     <h3>Phase 1: CONCEPT & FOUNDATION</h3>
@@ -99,22 +90,21 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="aboutus" class="founder">
             <h2>About Us</h2>
             <p>Milk.Sol is a community-driven, cow-themed crypto project focused on sustainability and long-term growth. 
-            With a unique approach to tokenomics, we aim to create opportunities for passive income while supporting charitable causes. 
             Our mission is to build a fun, engaging, and rewarding experience for all participants, combining innovation and community spirit.</p>
             <div class="founder-info">
-                <img src="./photo_2024-10-22_15-01-31.jpg" alt="lorem" class="founder-image" loading="lazy">
+                <img src="./photo_2024-10-22_15-01-31.jpg" alt="Founder Image" class="founder-image" loading="lazy">
                 <div class="founder-details">
                     <h3>Our Team</h3>
                     <p>Dedicated individuals working towards a common goal.</p>
                 </div>
             </div>
         </section>
-        
     </main>
+
     <footer>
         <div id="footer-content" class="footer-content">
             <p>&copy; 2024 Milk.Sol. All rights reserved.</p>
@@ -126,15 +116,25 @@
             </p>
         </div>
     </footer>
+
     <script>
-        // Toggle the mobile menu
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            var navbarLinks = document.getElementById('navbar-links');
-            navbarLinks.classList.toggle('active');
-            if (navbarLinks.style.display === "flex") {
-                navbarLinks.style.display = "none";
-            } else {
-                navbarLinks.style.display = "flex";
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            body.classList.toggle('menu-active');
+        });
+    
+        // Close the menu when clicking outside of it
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = navLinks.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+    
+            if (!isClickInsideMenu && !isClickOnHamburger && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-active');
             }
         });
     </script>
